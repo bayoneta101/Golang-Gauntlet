@@ -1,0 +1,20 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build (Docker Compose Bake)",
+      "type": "shell",
+      "command": "docker compose -f compose.debug.yml up --build",
+      "options": {
+        "env": {
+          "COMPOSE_BAKE": "true"
+        }
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    }
+  ]
+}

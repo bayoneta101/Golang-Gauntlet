@@ -1,0 +1,16 @@
+services:
+  client:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        SERVICE: client
+    image: gauntlet-client:latest
+
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        SERVICE: server
+    image: gauntlet-server:latest

@@ -1,0 +1,22 @@
+services:
+  client:
+    build:
+      context: .
+      dockerfile: Dockerfile.debug
+      args:
+        SERVICE: client
+    ports:
+      - "2345:40000"
+    security_opt:
+      - seccomp:unconfined
+
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile.debug
+      args:
+        SERVICE: server
+    ports:
+      - "2346:40000"
+    security_opt:
+      - seccomp:unconfined
