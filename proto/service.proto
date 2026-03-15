@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package grpc;
+
+option go_package = "gauntlet/gen;grpc";
+
+service Greeter {
+    rpc Hello (Message) returns (Reply){}
+}
+
+message Message{
+    string name = 1;
+}
+
+message Reply{
+    string name = 1;
+}

@@ -2,13 +2,10 @@ package main
 
 import (
 	"fmt"
-	"time"
+	grpc "gauntlet/client/grpc"
 )
 
 func main() {
 	fmt.Println("Entering client")
-	for {
-		time.Sleep(2 * time.Second)
-		fmt.Println("hellow world")
-	}
+	grpc.ClientCall()
 }

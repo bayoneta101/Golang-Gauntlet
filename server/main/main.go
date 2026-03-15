@@ -2,12 +2,10 @@ package main
 
 import (
 	"fmt"
-	"time"
+	"gauntlet/server/grpc"
 )
 
 func main() {
-	fmt.Println("hellow world")
-	for {
-		time.Sleep(5 * time.Second)
-	}
+	fmt.Println("starting server")
+	grpc.Serve()
 }

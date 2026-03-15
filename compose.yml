@@ -6,6 +6,8 @@ services:
       args:
         SERVICE: client
     image: gauntlet-client:latest
+    ports:
+      - "9001:9000"
 
   server:
     build:
@@ -14,3 +16,5 @@ services:
       args:
         SERVICE: server
     image: gauntlet-server:latest
+    ports:
+      - "9000:9000"

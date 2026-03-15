@@ -6,6 +6,7 @@ services:
       args:
         SERVICE: client
     ports:
+      - "9001:9000"
       - "2345:40000"
     security_opt:
       - seccomp:unconfined
@@ -17,6 +18,7 @@ services:
       args:
         SERVICE: server
     ports:
+      - "9000:9000"
       - "2346:40000"
     security_opt:
       - seccomp:unconfined

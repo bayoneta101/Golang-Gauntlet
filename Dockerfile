@@ -6,6 +6,8 @@ COPY go.mod go.sum ./
 RUN go mod download
 
 ARG SERVICE
+# gen folder contains grpc code
+COPY gen/ ./gen/
 COPY ${SERVICE}/ ./${SERVICE}/
 
 RUN go build -o /bin/service ./${SERVICE}/main/

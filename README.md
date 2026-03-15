@@ -11,7 +11,37 @@ The project is split into two separate microservices — `client` and `server` �
 COMPOSE_BAKE=true docker compose build
 ```
 
+### Folder structure
+
+```
+.
+├── proto/          # .proto definitions + go:generate directive
+├── gen/            # generated gRPC code (do not edit manually)
+├── client/
+│   ├── grpc/       # client-side gRPC logic
+│   └── main/       # client entrypoint
+└── server/
+    ├── grpc/       # server-side gRPC logic
+    └── main/       # server entrypoint
+```
+
+### Generating gRPC code
+
+Proto files live in `proto/` and output goes to `gen/`. To regenerate after changing a `.proto` file:
+
+```bash
+go generate ./...
+```
+
 ## List of implemented features
 
-Nothing for now :).
+### gRPC — Greeter service
+
+A simple client/server demo using Protocol Buffers and gRPC. The server exposes a `Hello` RPC that takes a name and returns a greeting. The client calls it once.
+
+To call it manually from the command line (server must be running):
+
+```bash
+grpcurl -plaintext -d '{"name": "world"}' localhost:9000 grpc.Greeter/Hello
+```
 
